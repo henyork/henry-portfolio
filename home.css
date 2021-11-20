@@ -17,5 +17,16 @@
 }
 
 a{
-    color:purple;
+    color:rgb(0, 70, 128);
+}
+
+
+
+.site-title a{
+    text-decoration: none;
+    text-align:center;
+}
+
+.site-title, .site-description{
+    text-align:center;
 }
