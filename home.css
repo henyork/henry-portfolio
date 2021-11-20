@@ -1,0 +1,11 @@
+.project-card-title{
+    position: absolute;
+    top: 5px;
+    right: 10px;
+}
+
+.project-card{
+    position: relative;
+    text-align: center;
+    color: white;
+}
