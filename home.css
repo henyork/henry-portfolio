@@ -1,11 +1,21 @@
 .project-card-title{
     position: absolute;
-    top: 5px;
-    right: 10px;
+    top: 50px;
+    left: 250px;
+    color: black;
 }
 
+.project-card:hover{
+    transform: scale(1.01);
+}
 .project-card{
     position: relative;
     text-align: center;
     color: white;
+    transition: all .2s ease-in-out;
+    width: 10vw;
+}
+
+a{
+    color:purple;
 }
