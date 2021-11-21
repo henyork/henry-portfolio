@@ -29,7 +29,7 @@
 		<?php endif; ?>
 	</header><!-- .entry-header -->
 
-	<?php henry_portfolio_post_thumbnail(); ?>
+	
 
 	<div class="entry-content">
 		<?php

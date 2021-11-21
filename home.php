@@ -18,14 +18,14 @@ get_header();
 	<main id="primary" class="site-main">
 		<?php
 		
-		$pages = get_pages(); 
+		$pages = get_posts(); 
 		echo '<div class = "row">';
-		foreach ($pages as $page_data) {
+		foreach ($posts as $post_data) {
 			 
 			//echo('<img>')
-			$content = apply_filters('the_content', $page_data->post_content); 
-			 $title = $page_data->post_title; 
-			 $id = $page_data->ID;
+			$content = apply_filters('the_content', $post_data->post_content); 
+			 $title = $post_data->post_title; 
+			 $id = $post_data->ID;
 			 /*echo('<h1>');
 			 //echo($id);
 			 echo('</h1>');*/
