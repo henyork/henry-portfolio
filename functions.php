@@ -145,7 +145,7 @@ function henry_portfolio_scripts() {
 	wp_style_add_data( 'henry-portfolio-style', 'rtl', 'replace' );
 
 	wp_enqueue_style('theme-style', get_template_directory_uri().'/home.css');
-	//wp_enqueue_style('my-style', get_template_directory_uri().'/home.css', array('theme-style'));
+	
 
 	wp_enqueue_script( 'henry-portfolio-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 

@@ -1,23 +1,56 @@
 .project-card-title{
-    position: absolute;
-    top: 50px;
-    left: 250px;
-    color: black;
+    position:absolute;
+   
+    top: 10%;
+    left: 15%;
+    text-align: right;
+    font-family: 'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 1.5vw;
+    font-weight: 700;
+    color: rgb(255, 255, 255);
+    -webkit-text-stroke-width: .5px;
+    -webkit-text-stroke-color: gray;
 }
 
 .project-card:hover{
     transform: scale(1.01);
 }
 .project-card{
+    display:block;
     position: relative;
     text-align: center;
-    color: white;
-    transition: all .2s ease-in-out;
-    width: 10vw;
+    
+    transition: all .15s ease-in-out;
+    border-radius: 8%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+   
 }
 
-a{
-    color:rgb(0, 70, 128);
+.column{
+    
+    float: left;
+    width: 20%;
+    padding: 2%;
+    position: relative;
+      
+}
+
+
+.row::after {
+    content:"";
+    clear:both;
+    display:table;
+    
+}
+
+
+
+.divider{
+    height: 2vh;
+    background: linear-gradient(0deg, hsla(0, 0%, 100%, 1) 0%, hsla(230, 14%, 67%, 1) 100%);
+    background: linear-gradient(0deg, hsla(0, 0%, 100%, 1) 0%, hsla(227, 42%, 89%, 1) 100%);
+    margin-bottom:5vh;
+
 }
 
 
@@ -25,8 +58,59 @@ a{
 .site-title a{
     text-decoration: none;
     text-align:center;
+    color:#45B69C;
+    -webkit-text-stroke: .5px #738886;
+    transition: all .15s ease-in-out;
+}
+
+.site-title a:hover{
+    color:#a8dace;
+}
+
+.site-title:hover{
+    
+    
 }
 
 .site-title, .site-description{
     text-align:center;
+    margin-top:0px;
+    margin-bottom:0;
+}
+
+
+
+.footer-text{
+    position:relative;
+    display: inline;
+    text-align:center;
+    
+    padding-top:100px;
+    font-weight:400;
+}
+
+
+.site-footer{
+    
+    
+    position: fixed;
+    bottom:0;
+    background-color: #A0A4B8;
+    width:100%;
+    height:6vh;
+    text-align:center;
+    
+    
+    
+}
+
+.site-branding{
+    
+    background-color: #D8DDEF;
+    margin-top:0px;
+    
+}
+
+html, div#page{
+    background-color:white;
 }

@@ -46,7 +46,7 @@
 				<p class="site-description"><?php echo $henry_portfolio_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
 			<?php endif; ?>
 		</div><!-- .site-branding -->
-
+		<div class=divider></div>
 		
 		
 		

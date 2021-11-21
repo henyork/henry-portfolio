@@ -19,6 +19,7 @@ get_header();
 		<?php
 		
 		$pages = get_pages(); 
+		echo '<div class = "row">';
 		foreach ($pages as $page_data) {
 			 
 			//echo('<img>')
@@ -31,14 +32,19 @@ get_header();
 			
 			 if (has_post_thumbnail($id)){
 			 	$image = wp_get_attachment_image_src( get_post_thumbnail_id($id), 'single-post-thumbnail' ); 
-			 	
-				 echo '<div class = "project-card">';
-				 echo '<img src="'. $image[0] .'" alt="'. get_the_title() .'" />';
+			 	$link = get_permalink($id);
+				 
+				 echo '<div class = "column">';
+				 echo '<a href="'.$link.'">';
+				 echo '<img href= "" class = "project-card" src="'. $image[0] .'" alt="'. get_the_title() .'" />';
 				 echo '<div class = "project-card-title">'.$title.'</div>';
+				 echo '</a>';
 				 echo '</div>';
+				 
 			 }
 			 //echo $content; 
 		}
+		echo '</div>';
 		?>
 		
 
