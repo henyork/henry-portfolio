@@ -21,10 +21,7 @@
 		if ( 'post' === get_post_type() ) :
 			?>
 			<div class="entry-meta">
-				<?php
-				henry_portfolio_posted_on();
-				henry_portfolio_posted_by();
-				?>
+				
 			</div><!-- .entry-meta -->
 		<?php endif; ?>
 	</header><!-- .entry-header -->
@@ -56,8 +53,6 @@
 		);
 		?>
 	</div><!-- .entry-content -->
-
-	<footer class="entry-footer">
-		<?php henry_portfolio_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
+	<div class= post-spacing></div>
+	
 </article><!-- #post-<?php the_ID(); ?> -->

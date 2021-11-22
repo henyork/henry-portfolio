@@ -49,6 +49,7 @@
     height: 2vh;
     background: linear-gradient(0deg, hsla(0, 0%, 100%, 1) 0%, hsla(230, 14%, 67%, 1) 100%);
     background: linear-gradient(0deg, hsla(0, 0%, 100%, 1) 0%, hsla(227, 42%, 89%, 1) 100%);
+    background:white;
     margin-bottom:5vh;
 
 }
@@ -81,9 +82,10 @@
     position:relative;
     display: inline;
     text-align:center;
-    
+    color:#45B69C;
     padding-top:100px;
-    font-weight:400;
+    font-weight:600;
+    -webkit-text-stroke: .5px #738886;
 }
 
 
@@ -103,8 +105,9 @@
 
 .site-branding{
     
-    background-color: #D8DDEF;
+    background-color: white;
     margin-top:0px;
+    height:8vh;
     
 }
 

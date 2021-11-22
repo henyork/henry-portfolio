@@ -1,3 +1,16 @@
 .site-main{
     text-align:center;
 }
+
+p{
+    padding-left:2vw;
+    padding-right:2vw;
+}
+
+.post-spacing{
+    height: 5vh;
+}
+
+.site-footer{
+    position:static;
+}
