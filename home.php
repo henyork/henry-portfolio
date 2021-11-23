@@ -17,9 +17,19 @@ get_header();
     
 	<main id="primary" class="site-main">
 		<?php
+		$args = array(
+            
+            'orderby' => 'date',
+            'order' => 'DESC',
+            
+        );
+		$posts = get_posts($args); 
 		
-		$pages = get_posts(); 
 		echo '<div class = "row">';
+
+		//2021
+
+
 		foreach ($posts as $post_data) {
 			 
 			//echo('<img>')

@@ -53,6 +53,9 @@
 		);
 		?>
 	</div><!-- .entry-content -->
+	
+	
 	<div class= post-spacing></div>
+	
 	
 </article><!-- #post-<?php the_ID(); ?> -->
