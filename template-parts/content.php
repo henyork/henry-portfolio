@@ -51,9 +51,14 @@
 				'after'  => '</div>',
 			)
 		);
+
+	
+
+
 		?>
 	</div><!-- .entry-content -->
-	
+	<div class= back-button>
+	<a href= "/wordpress/#<?php echo(get_the_date('Y')); ?>">Back</a>
 	
 	<div class= post-spacing></div>
 	

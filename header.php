@@ -25,6 +25,9 @@
 	if(is_single()){
 		echo '<link rel="stylesheet" href="/wordpress/wp-content/themes/henry-portfolio/post.css">';
 	}
+	if(is_page() && !is_home()){
+		echo '<link rel="stylesheet" href="/wordpress/wp-content/themes/henry-portfolio/page.css">';
+	}
 	?>
 	
 </head>
@@ -44,7 +47,7 @@
 				<?php
 			else :
 				?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
+				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 				<?php
 			endif;
 			$henry_portfolio_description = get_bloginfo( 'description', 'display' );
@@ -54,6 +57,7 @@
 			<?php endif; ?>
 		</div><!-- .site-branding -->
 		<div class=divider></div>
+		
 		<div class= "nav-menu">
 		<nav id="site-navigation" class="main-navigation">
 			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Menu', 'henry-portfolio' ); ?></button>

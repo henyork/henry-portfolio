@@ -44,7 +44,9 @@ get_header();
 				);
 				$posts = get_posts($args); 
 				if(!empty($posts)){
-					echo '<div class="year">'. $year .'</div>';
+					echo '<div id="'.$year.'" class="year">';
+					echo '<div class = "text">'.$year.'</div></div>';
+					
 					echo '<div class = "row">';
 
 					//2021
