@@ -29,6 +29,29 @@
 	
 
 	<div class="entry-content">
+	
+	<?php 
+	
+	$categories = get_the_category();
+	echo '<h2 class= "post-info">';
+	foreach($categories as $category_data){
+		if(($category_data === reset($categories)) && (sizeof($categories) > 1)){
+			echo 'Categories: <b>';
+		}elseif($category_data === reset($categories)){
+			echo 'Category: <b>';
+		}
+		
+		
+		echo $category_data -> name;
+		if(!($category_data === end($categories))){
+			echo ', ';
+		}
+		
+	}
+	
+	?></b></h2>
+	<h2 class="post-info">| Year: <b><?php echo get_the_date('Y');?></b></h2>
+	
 		<?php
 		the_content(
 			sprintf(
@@ -59,7 +82,7 @@
 	</div><!-- .entry-content -->
 	<div class= back-button>
 	<a href= "/wordpress/#<?php echo(get_the_date('Y')); ?>">Back</a>
-	
+	</div>
 	<div class= post-spacing></div>
 	
 	
