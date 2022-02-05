@@ -16,59 +16,64 @@ get_header();
 ?>
     
 	<main id="primary" class="site-main">
-		<?php
-		
-		//catergories sorting
-		/*$categories = get_categories();
-		echo '<div class = "catergory-bar">';
-		echo '<input class="category-selection" type="radio" value="All" name="categories">';
-		foreach($categories as $chosen){
-			$category = $chosen -> name;
-			echo'<label for="catergories">'.$category.'</label>';
-			echo '<input class="category-selection" type="radio" value="'.$category.'" name="categories">';
-			
-		}*/	
+	<?php
 		echo '</div>';
-
 		
+		//new Post getting
+	
+		$args = array('numberposts' => -1,'orderby' => 'rand');
+		$posts = get_posts($args);
+
+		if(!empty($posts)){
+			$pastX= 50;
+			$pastY= 50;
+			$numposts= count($posts);
+			
+			foreach($posts as $post_data){
+				$x = $pastX + rand(-20,20);
+				$y = $pastY + rand(-20,20);
+				$pastX = $x;
+				$pastY = $y;
+				$title = $post_data->post_title; 
+				$id = $post_data->ID;
+				if (has_post_thumbnail($id)){
+					$image = wp_get_attachment_image_src( get_post_thumbnail_id($id), 'single-post-thumbnail' ); 
+					$link = get_permalink($id);
+					echo '<div style = "top:'.$y.'%; left:'.$x.'%;" class = "card-container">';
+					echo '<a href="'.$link.'">';
+					echo '<img href= "" class = "project-card" src="'. $image[0] .'" alt="'. get_the_title() .'" />';
+					//echo '<div class = "project-card-title">'.$title.'</div>';
+					//echo '<div class = "project-card-year">'.$year.'</div>';
+					echo '</a>';
+					echo '</div>';
+				}
+
+
+			}
+		}
+
+
+
+
+				/*
+				OLD POST GETTING
 				$cur_yr = date('Y');
 				$year = $cur_yr;
-				
-
-				
-				
 				$args = array(
-					
-				
 					'numberposts' => -1
 				);
 				
 				$posts = get_posts($args);
-				
 				if(!empty($posts)){
-					/*echo '<div id="'.$year.'" class="year">';
-					echo '<div class = "text">'.$year.'</div></div>';*/
-					
 					echo '<div class = "row">';
-
-					//2021
-
-
 					foreach ($posts as $post_data) {
-						
 						//echo('<img>')
 						$content = apply_filters('the_content', $post_data->post_content); 
-						
 						$title = $post_data->post_title; 
 						$id = $post_data->ID;
-						/*echo('<h1>');
-						//echo($id);
-						echo('</h1>');*/
-						
 						if (has_post_thumbnail($id)){
 							$image = wp_get_attachment_image_src( get_post_thumbnail_id($id), 'single-post-thumbnail' ); 
 							$link = get_permalink($id);
-							
 							echo '<div class = "column">';
 							echo '<a href="'.$link.'">';
 							echo '<img href= "" class = "project-card" src="'. $image[0] .'" alt="'. get_the_title() .'" />';
@@ -76,13 +81,11 @@ get_header();
 							echo '<div class = "project-card-year">'.$year.'</div>';
 							echo '</a>';
 							echo '</div>';
-							
 						}
-						//echo $content; 
 					}
 					echo '</div>';
 					}
-			
+					*/
 		
 		?>
 		

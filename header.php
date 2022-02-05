@@ -64,7 +64,7 @@
 		}
 	};
 
-	page.onscrollforeward = function( e ) {var scaleVal = matrix[0]+matrix[0]*scaleFactor; if(scaleVal < 1){scaleVal = 1;} this.style.transform = "scale("+scaleVal+")"; /*this.style.transformOrigin = mouseX+"px "+ mouseY+"px";*/;
+	page.onscrollforeward = function( e ) {var scaleVal = matrix[0]+matrix[0]*scaleFactor; if(scaleVal < 1){scaleVal = 1;} this.style.transform = "scale("+scaleVal+")"; this.style.transformOrigin = mouseX+"px "+ mouseY+"px";;
 	 };
 
 	page.onscrollbackward = function( e ) {var scaleVal = matrix[0]-matrix[0]*scaleFactor; if(scaleVal < 1){scaleVal = 1;} this.style.transform = "scale("+scaleVal+")"; /*this.style.transformOrigin = mouseX+"px "+ mouseY+"px";*/;

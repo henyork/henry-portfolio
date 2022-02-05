@@ -25,18 +25,12 @@
         right: 15%;
     }
 
-
-.project-card:hover{
-    transform: scale(1.01);
-    
-}
-.project-card{
+.card-container{
     display:block;
-    position: relative;
+    position: absolute;
     text-align: center;
-    
-    transition: all .15s ease-in-out;
     border-radius: 8%;
+    width: 10vh;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
    
 }
