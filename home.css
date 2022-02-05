@@ -12,6 +12,20 @@
     -webkit-text-stroke-color: gray;
 }
 
+.project-card-year{
+        font-family: 'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif;
+        font-size: 1.5vw;
+        font-weight: 700;
+        color: rgb(255, 255, 255);
+        -webkit-text-stroke-width: .8px;
+        -webkit-text-stroke-color: gray;
+        
+        position: absolute;
+        bottom:10%;
+        right: 15%;
+    }
+
+
 .project-card:hover{
     transform: scale(1.01);
     
@@ -243,6 +257,10 @@ button.menu-toggle{
         top: 4%;
         left: 8%;
         font-size:10vw;
+    }
+    .project-card-year{
+        top: 4%;
+        left: 8%;    
     }
     .project-card{
         margin-top:1vh;

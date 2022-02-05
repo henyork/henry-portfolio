@@ -30,7 +30,8 @@ get_header();
 		}*/	
 		echo '</div>';
 
-		for($cur_yr = date('Y'); $cur_yr >= 2010; $cur_yr--){ //iterate thru years
+		
+				$cur_yr = date('Y');
 				$year = $cur_yr;
 				
 
@@ -38,17 +39,15 @@ get_header();
 				
 				$args = array(
 					
-					'orderby' => 'date',
-					'order' => 'DESC',
-					'year' => $year,
+				
 					'numberposts' => -1
 				);
 				
 				$posts = get_posts($args);
 				
 				if(!empty($posts)){
-					echo '<div id="'.$year.'" class="year">';
-					echo '<div class = "text">'.$year.'</div></div>';
+					/*echo '<div id="'.$year.'" class="year">';
+					echo '<div class = "text">'.$year.'</div></div>';*/
 					
 					echo '<div class = "row">';
 
@@ -74,6 +73,7 @@ get_header();
 							echo '<a href="'.$link.'">';
 							echo '<img href= "" class = "project-card" src="'. $image[0] .'" alt="'. get_the_title() .'" />';
 							echo '<div class = "project-card-title">'.$title.'</div>';
+							echo '<div class = "project-card-year">'.$year.'</div>';
 							echo '</a>';
 							echo '</div>';
 							
@@ -82,7 +82,7 @@ get_header();
 					}
 					echo '</div>';
 					}
-			}
+			
 		
 		?>
 		
