@@ -12,6 +12,7 @@
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
+<div id= "whole-page">
 <head>
 
 	
@@ -29,7 +30,56 @@
 		echo '<link rel="stylesheet" href="/wordpress/wp-content/themes/henry-portfolio/page.css">';
 	}
 	?>
+	<!-- Zoom Script -->
+	<script>
 	
+    // print "false" if direction is down and "true" if up
+	
+	var mouseX = 100;
+	var mouseY = 100;
+	
+	document.addEventListener('mousemove', (event) => {
+		mouseX = event.clientX; mouseY = event.clientY;
+		
+	});
+	
+	const page = document.getElementById("whole-page");
+	page.zoom = 1;
+	var matrix = [1,0,0,0,0];
+	const scaleFactor = .1;
+
+	
+
+	page.onwheel = function _page__onwheel( e ) {
+    	e.preventDefault();
+    	this[ e.deltaY < 0 ? 'onscrollforeward' : 'onscrollbackward' ]();
+		let compStyle = window.getComputedStyle(page);
+		let curScale = compStyle.getPropertyValue('transform');
+		
+		matrix = curScale
+             .split('(')[1]
+             .split(')')[0]
+             .split(',')
+             .map(parseFloat);
+		
+		if(matrix[0]-scaleFactor <1){
+			matrix[0] = 1+scaleFactor;
+		}
+	};
+
+	page.onscrollforeward = function( e ) {this.style.transform = "scale("+(matrix[0]+matrix[0]*scaleFactor)+")"; this.style.transformOrigin = mouseX+"px "+ mouseY+"px";  console.log(""+mouseX +" "+ mouseY+"");
+	 };
+
+	page.onscrollbackward = function( e ) {this.style.transform = "scale("+(matrix[0]-matrix[0]*scaleFactor)+")"; console.log("backward");
+	};    
+
+	
+
+
+    
+    </script>
+
+
 </head>
 
 <body <?php body_class(); ?>>
