@@ -40,9 +40,12 @@ get_header();
 					
 					'orderby' => 'date',
 					'order' => 'DESC',
-					'year' => $year
+					'year' => $year,
+					'numberposts' => -1
 				);
-				$posts = get_posts($args); 
+				
+				$posts = get_posts($args);
+				
 				if(!empty($posts)){
 					echo '<div id="'.$year.'" class="year">';
 					echo '<div class = "text">'.$year.'</div></div>';
@@ -56,6 +59,7 @@ get_header();
 						
 						//echo('<img>')
 						$content = apply_filters('the_content', $post_data->post_content); 
+						
 						$title = $post_data->post_title; 
 						$id = $post_data->ID;
 						/*echo('<h1>');

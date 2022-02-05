@@ -27,7 +27,7 @@
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->
-<div class="bottom-fade"></div>
+<div style = "background: linear-gradient(180deg, hsla(0, 0%, 100%, 0) 0%, #<? echo get_background_color()?> 100%)"class="bottom-fade"></div>
 <?php wp_footer(); ?>
 
 </body>

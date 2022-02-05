@@ -22,9 +22,9 @@
 
 
 	<?php wp_head(); 
-	if(is_single()){
+	/*if(is_single()){
 		echo '<link rel="stylesheet" href="/wordpress/wp-content/themes/henry-portfolio/post.css">';
-	}
+	}*/
 	if(is_page() && !is_home()){
 		echo '<link rel="stylesheet" href="/wordpress/wp-content/themes/henry-portfolio/page.css">';
 	}
@@ -38,27 +38,8 @@
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'henry-portfolio' ); ?></a>
 
 	<header id="masthead" class="site-header">
-		<div class="site-branding">
-			<?php
-			the_custom_logo();
-			if ( is_front_page() && is_home() ) :
-				?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-				<?php
-			else :
-				?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-				<?php
-			endif;
-			$henry_portfolio_description = get_bloginfo( 'description', 'display' );
-			if ( $henry_portfolio_description || is_customize_preview() ) :
-				?>
-				<p class="site-description"><?php echo $henry_portfolio_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
-			<?php endif; ?>
-		</div><!-- .site-branding -->
-		<div class=divider></div>
 		
-		<div class= "nav-menu">
+	<div class= "nav-menu">
 		<nav id="site-navigation" class="main-navigation">
 			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Menu', 'henry-portfolio' ); ?></button>
 			<?php
@@ -71,5 +52,27 @@
 			?>
 		</nav><!-- #site-navigation -->
 		</div>
+	
+	<div class="site-branding">
+			<?php
+			the_custom_logo();
+			if ( is_front_page() && is_home() ) :
+				?>
+				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+				<?php
+			else :
+				?>
+				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+				<?php
+			endif;
+			/*$henry_portfolio_description = get_bloginfo( 'description', 'display' );
+			if ( $henry_portfolio_description || is_customize_preview() ) :
+				?>
+				<p class="site-description"><?php echo $henry_portfolio_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
+			<?php endif; */?>
+		</div><!-- .site-branding -->
+		
+		
+		
 		
 	</header><!-- #masthead -->

@@ -1,6 +1,8 @@
 .site-main{
-    text-align:center;
+    text-align:left;
     color:#515151;
+    margin-left:2vw;
+    
 }
 
 p{
@@ -25,12 +27,12 @@ p{
     
     border-radius: 5px;
     width:20vw;
-    margin: 0 auto;
+    
     box-shadow: 0 4px 3px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .back-button{
-    cursor:pointer;
+   cursor:pointer;
    width:300px;
 }
 
@@ -53,10 +55,14 @@ p{
 .post-info b{
     color:darkgrey;
     font-weight:500;
-    background-color: white;
+    
     padding:3px;
     border-radius: 5px;
     -webkit-text-stroke: .2px black;
+    
 }
 
+ul{
 
+ margin-left:1vw;      
+    }
