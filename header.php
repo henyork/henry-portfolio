@@ -46,10 +46,7 @@
 	const page = document.getElementById("whole-page");
 	page.zoom = 1;
 	var matrix = [1,0,0,0,0];
-	const scaleFactor = .1;
-
-	
-
+	const scaleFactor = .05;
 	page.onwheel = function _page__onwheel( e ) {
     	e.preventDefault();
     	this[ e.deltaY < 0 ? 'onscrollforeward' : 'onscrollbackward' ]();
@@ -67,16 +64,54 @@
 		}
 	};
 
-	page.onscrollforeward = function( e ) {this.style.transform = "scale("+(matrix[0]+matrix[0]*scaleFactor)+")"; this.style.transformOrigin = mouseX+"px "+ mouseY+"px";  console.log(""+mouseX +" "+ mouseY+"");
+	page.onscrollforeward = function( e ) {var scaleVal = matrix[0]+matrix[0]*scaleFactor; if(scaleVal < 1){scaleVal = 1;} this.style.transform = "scale("+scaleVal+")"; /*this.style.transformOrigin = mouseX+"px "+ mouseY+"px";*/;
 	 };
 
-	page.onscrollbackward = function( e ) {this.style.transform = "scale("+(matrix[0]-matrix[0]*scaleFactor)+")"; console.log("backward");
+	page.onscrollbackward = function( e ) {var scaleVal = matrix[0]-matrix[0]*scaleFactor; if(scaleVal < 1){scaleVal = 1;} this.style.transform = "scale("+scaleVal+")"; /*this.style.transformOrigin = mouseX+"px "+ mouseY+"px";*/;
 	};    
 
+
+		// Make the DIV element draggable:
+	dragElement(document.getElementById("whole-page"));
+
+	function dragElement(elmnt) {
+	var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+	
+		elmnt.onmousedown = dragMouseDown;
 	
 
+	function dragMouseDown(e) {
+		console.log("mouse down");
+		e = e || window.event;
+		e.preventDefault();
+		// get the mouse cursor position at startup:
+		pos3 = e.clientX;
+		console.log(pos3);
+		pos4 = e.clientY;
+		document.onmouseup = closeDragElement;
+		// call a function whenever the cursor moves:
+		document.onmousemove = elementDrag;
+	}
 
-    
+	function elementDrag(e) {
+		e = e || window.event;
+		e.preventDefault();
+		// calculate the new cursor position:
+		pos1 = pos3 - e.clientX;
+		pos2 = pos4 - e.clientY;
+		pos3 = e.clientX;
+		pos4 = e.clientY;
+		// set the element's new position:
+		elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+		elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+	}
+
+	function closeDragElement() {
+		// stop moving when mouse button is released:
+		document.onmouseup = null;
+		document.onmousemove = null;
+	}
+}
     </script>
 
 
@@ -108,7 +143,7 @@
 			the_custom_logo();
 			if ( is_front_page() && is_home() ) :
 				?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+				<h1 id="henry-title" class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 				<?php
 			else :
 				?>

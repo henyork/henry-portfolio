@@ -289,6 +289,6 @@ button.menu-toggle{
 }
 
 
-.whole-page{
-    
+#whole-page{
+    position:absolute;
     }
