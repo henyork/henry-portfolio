@@ -3,16 +3,19 @@
     top: 2%;
     left: 5%;
     font-family: 'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-size: .5em;
+    //font-size: 55%;
     font-weight: 700;
     color: rgb(255, 255, 255);
     -webkit-text-stroke-width: .05em;
     -webkit-text-stroke-color: gray;
+    opacity: 0%;
+    transition: 1s;
+    filter: none;
 }
 
 .project-card-year{
         font-family: 'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif;
-        font-size: .5em;
+        //font-size: 55%;
         font-weight: 700;
         color: rgb(255, 255, 255);
         -webkit-text-stroke-width: .05em;
@@ -20,19 +23,26 @@
         position: absolute;
         bottom:10%;
         right: 8%;
+        opacity: 0%;
+        transition: 1s;
+        filter: none;
+}
+
+.card-container:hover div{
+opacity:100%;    
 }
 
 .card-container{
     display:block;
     position: absolute;
-    text-align: center;
+    text-align: left;
     border-radius: 8%;
     width: 10vh;
     animation-name: breathe;
     animation-duration: 1s;
     animation-iteration-count: infinite;
     animation-direction:alternate;
-    
+    font-size: 50%;
 }
 
 .project-card{
@@ -296,7 +306,14 @@ button.menu-toggle{
 html{
     height:100%;
     overflow: hidden;
+    //background: #3f3f3f;
     background: whitesmoke;
     
+}
+
+#footer-menu{
+position:absolute;
+bottom: 0;
+transition: 1s;
     
 }

@@ -29,6 +29,16 @@
 </div><!-- #page -->
 
 <?php wp_footer(); ?>
+<div id="footer-menu">
+<?php
+			wp_nav_menu(
+				array(
+					'theme_location' => 'menu-2',
+					'menu_id'        => 'secondary-menu',
+				)
+			);
+?>
+</div>
 
 </body>
 </div>

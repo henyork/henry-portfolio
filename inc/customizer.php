@@ -15,6 +15,27 @@ function henry_portfolio_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
 	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
 
+	$wp_customize->add_setting( 'header_textcolor' , array(
+
+		'default'   => '#000000',
+		
+		'transport' => 'refresh',
+		
+		) );
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'link_color', array(
+
+		'label'      => __( 'Header Color', 'henry-portfolio' ),
+		
+		'section'    => 'your_section_id',
+		
+		'settings'   => 'your_setting_id',
+		
+		) ) );
+
+
+
+
+
 	if ( isset( $wp_customize->selective_refresh ) ) {
 		$wp_customize->selective_refresh->add_partial(
 			'blogname',
@@ -30,6 +51,9 @@ function henry_portfolio_customize_register( $wp_customize ) {
 				'render_callback' => 'henry_portfolio_customize_partial_blogdescription',
 			)
 		);
+
+		
+
 	}
 }
 add_action( 'customize_register', 'henry_portfolio_customize_register' );

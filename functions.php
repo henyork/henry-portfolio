@@ -51,6 +51,7 @@ if ( ! function_exists( 'henry_portfolio_setup' ) ) :
 		register_nav_menus(
 			array(
 				'menu-1' => esc_html__( 'Primary', 'henry-portfolio' ),
+				'menu-2' => esc_html__('Secondary','henry-portfolio')
 			)
 		);
 
