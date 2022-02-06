@@ -46,7 +46,7 @@
 	const page = document.getElementById("whole-page");
 	page.zoom = 1;
 	var matrix = [1,0,0,0,0];
-	const scaleFactor = .05;
+	const scaleFactor = .95;
 	page.onwheel = function _page__onwheel( e ) {
     	e.preventDefault();
     	this[ e.deltaY < 0 ? 'onscrollforeward' : 'onscrollbackward' ]();
@@ -59,15 +59,21 @@
              .split(',')
              .map(parseFloat);
 		
-		if(matrix[0]-scaleFactor <1){
-			matrix[0] = 1+scaleFactor;
-		}
+		
 	};
 
-	page.onscrollforeward = function( e ) {var scaleVal = matrix[0]+matrix[0]*scaleFactor; if(scaleVal < 1){scaleVal = 1;} this.style.transform = "scale("+scaleVal+")"; this.style.transformOrigin = mouseX+"px "+ mouseY+"px";;
+	page.onscrollforeward = function( e ) {
+		var scaleVal = matrix[0]*(1/scaleFactor); 
+		//if(scaleVal < 1){scaleVal = 1;} 
+		this.style.transform = "scale("+scaleVal+")"; 
+		this.style.transformOrigin = "calc("+this.offsetTop+"px + 50%) calc("+this.offsetLeft+"px + 50%);";
 	 };
 
-	page.onscrollbackward = function( e ) {var scaleVal = matrix[0]-matrix[0]*scaleFactor; if(scaleVal < 1){scaleVal = 1;} this.style.transform = "scale("+scaleVal+")"; /*this.style.transformOrigin = mouseX+"px "+ mouseY+"px";*/;
+	page.onscrollbackward = function( e ) {
+	var scaleVal = matrix[0]*scaleFactor; 
+	//if(scaleVal < 1){scaleVal = 1;}
+	 this.style.transform = "scale("+scaleVal+")";
+	 this.style.transformOrigin = "calc("+this.offsetTop+"px + 50%) calc("+this.offsetLeft+"px + 50%);";
 	};    
 
 
@@ -124,19 +130,7 @@
 
 	<header id="masthead" class="site-header">
 		
-	<div class= "nav-menu">
-		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Menu', 'henry-portfolio' ); ?></button>
-			<?php
-			wp_nav_menu(
-				array(
-					'theme_location' => 'menu-1',
-					'menu_id'        => 'primary-menu',
-				)
-			);
-			?>
-		</nav><!-- #site-navigation -->
-		</div>
+	
 	
 	<div class="site-branding">
 			<?php
@@ -155,8 +149,21 @@
 				?>
 				<p class="site-description"><?php echo $henry_portfolio_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
 			<?php endif; */?>
-		</div><!-- .site-branding -->
-		
+	</div><!-- .site-branding -->
+	
+	<div class= "nav-menu">
+		<nav id="site-navigation" class="main-navigation">
+			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Menu', 'henry-portfolio' ); ?></button>
+			<?php
+			wp_nav_menu(
+				array(
+					'theme_location' => 'menu-1',
+					'menu_id'        => 'primary-menu',
+				)
+			);
+			?>
+		</nav><!-- #site-navigation -->
+	</div>	
 		
 		
 		

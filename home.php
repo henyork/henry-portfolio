@@ -21,29 +21,40 @@ get_header();
 		
 		//new Post getting
 	
-		$args = array('numberposts' => -1,'orderby' => 'rand');
+		$args = array('numberposts' => -1,'orderby' => 'title');
 		$posts = get_posts($args);
 
 		if(!empty($posts)){
-			$pastX= 50;
-			$pastY= 50;
+			
 			$numposts= count($posts);
+			$count = 1;
+			
 			
 			foreach($posts as $post_data){
-				$x = $pastX + rand(-20,20);
-				$y = $pastY + rand(-20,20);
-				$pastX = $x;
-				$pastY = $y;
+				
+				if($count < 1/2 * $numposts){
+					$x = 15+((140/$numposts)*$count);
+					$y = 50+ sqrt(400*1*(1-(($x-50)**2)/1225));
+				}
+				if($count >= 1/2*$numposts){
+					$x = 155-((140/$numposts)*$count);
+					$y = 50- sqrt(400*1*(1-(($x-50)**2)/1225));
+				}
+				$width = rand(3, 5);
+				$duration = rand(3,10);
+				$count++;
+
 				$title = $post_data->post_title; 
 				$id = $post_data->ID;
+				$year = get_the_date($format = 'Y', $post = $id);
 				if (has_post_thumbnail($id)){
 					$image = wp_get_attachment_image_src( get_post_thumbnail_id($id), 'single-post-thumbnail' ); 
 					$link = get_permalink($id);
-					echo '<div style = "top:'.$y.'%; left:'.$x.'%;" class = "card-container">';
+					echo '<div style = "animation-duration:'.$duration.'s; top:'.$y.'vh; left:'.($x-1/2*$width).'vw; width:'.$width.'vw;" class = "card-container">';
 					echo '<a href="'.$link.'">';
-					echo '<img href= "" class = "project-card" src="'. $image[0] .'" alt="'. get_the_title() .'" />';
-					//echo '<div class = "project-card-title">'.$title.'</div>';
-					//echo '<div class = "project-card-year">'.$year.'</div>';
+					echo '<img href= "" style = "" class = "project-card" src="'. $image[0] .'" alt="'. get_the_title() .'" />';
+					echo '<div class = "project-card-title">'.$title.'</div>';
+					echo '<div class = "project-card-year">'.$year.'</div>';
 					echo '</a>';
 					echo '</div>';
 				}

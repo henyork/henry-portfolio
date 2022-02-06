@@ -1,4 +1,4 @@
-<?php
+<?php 
 /**
  * The template for displaying the footer
  *
@@ -10,7 +10,7 @@
  */
 
 ?>
-
+	
 	<footer id="colophon" class="site-footer">
 		<div style="text-align:center;" class="site-info">
 			
@@ -20,7 +20,7 @@
 				<?php
 				/* translators: 1: Theme name, 2: Theme author. */
 				//$name = bloginfo( 'name' );
-				echo '<h3 class=footer-text>© Henry York 2021</h3>';
+				//echo '<h3 class=footer-text>© Henry York 2021</h3>';
 				//echo '<h2 class="footer-name">'.$name.'</h2>';
 				//printf( esc_html__( 'Theme: %1$s by %2$s.', 'henry-portfolio' ), 'henry-portfolio', '<a href="http://underscores.me/">Henry York</a>' );
 				?>
