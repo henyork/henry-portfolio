@@ -10,30 +10,56 @@
  *
  * @param WP_Customize_Manager $wp_customize Theme Customizer object.
  */
+
+
+
+function starter_customize_register( $wp_customize ) 
+{
+    $wp_customize->add_section( 'popup' , array(
+        'title'    => __( 'Pop-Up', 'starter' ),
+        'priority' => 30
+    ) );   
+
+    $wp_customize->add_setting( 'popupentrytext' , array(
+        'default'   => '',
+        'transport' => 'refresh',
+		'sanitize_callback' => 'wp_filter_nohtml_kses'
+    ) );
+
+    $wp_customize->add_control( 'popupentry', array(
+        'label'    => __( 'Pop-Up Text', 'starter' ),
+		'type' => 'textarea',
+        'section'  => 'popup',
+        'settings' => 'popupentrytext'
+		
+    ) ) ;
+	$wp_customize->add_setting( 'popupcolor',
+   array(
+      'default' => '#333',
+      'sanitize_callback' => 'sanitize_hex_color',
+  	 )
+	);
+	$wp_customize->add_control( 'popupcolor',
+		array(
+		'label' => __( 'Pop-Up Background' ),
+		'section' => 'popup',
+		'type' => 'color',
+	)
+	);
+
+}
+add_action( 'customize_register', 'starter_customize_register');
+
+
+
+
+
+
+ 
 function henry_portfolio_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
 	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
-
-	$wp_customize->add_setting( 'header_textcolor' , array(
-
-		'default'   => '#000000',
-		
-		'transport' => 'refresh',
-		
-		) );
-	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'link_color', array(
-
-		'label'      => __( 'Header Color', 'henry-portfolio' ),
-		
-		'section'    => 'your_section_id',
-		
-		'settings'   => 'your_setting_id',
-		
-		) ) );
-
-
-
 
 
 	if ( isset( $wp_customize->selective_refresh ) ) {

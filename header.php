@@ -34,19 +34,20 @@
 	<script>
 	
     // print "false" if direction is down and "true" if up
-	
+	var popUpCounter = 0;
 	var mouseX = 100;
 	var mouseY = 100;
 	
 	document.addEventListener('mousemove', (event) => {
 		mouseX = event.clientX; mouseY = event.clientY;
-		
+		popUpCounter++;
 	});
 	
 	const page = document.getElementById("whole-page");
 	page.zoom = 1;
 	var matrix = [1,0,0,0,0];
 	const scaleFactor = .95;
+	
 	page.onwheel = function _page__onwheel( e ) {
     	e.preventDefault();
     	this[ e.deltaY < 0 ? 'onscrollforeward' : 'onscrollbackward' ]();
@@ -58,8 +59,11 @@
              .split(')')[0]
              .split(',')
              .map(parseFloat);
-		
-		
+		popUpCounter*=1.1;
+		if(popUpCounter>200){
+			popUp = document.getElementById("pop-up");
+			popUp.style.opacity = "0%";
+		}
 	};
 
 	page.onscrollforeward = function( e ) {

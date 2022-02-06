@@ -84,7 +84,7 @@ opacity:100%;
     font-family: niveau-grotesk-small-caps, sans-serif;
     font-weight: 500;
     font-style: normal;
-    font-size: 200%;
+    font-size: 4vw;
 
 
 }
@@ -135,38 +135,6 @@ opacity:100%;
     top: 45vh;
     width: 100vw;
 }
-
-
-.year{
-    
-    
-    height:65px;
-    
-    box-shadow: 0 4px 3px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    margin-right:90vw;
-    text-align:center;
-    
-    padding-right:1vw;
-    color:#45B69C;
-    background-color: white;
-    
-    -webkit-text-stroke: .5px #738886;
-    
-    border-bottom-right-radius: 20px;
-    border-top-right-radius: 20px;
-    
-}
-
-.year .text{
-    
-    font-size:30px;
-    padding-top:8px;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-weight:bolder;
-    
-}
-
-
 
 
 ul#primary-menu {
@@ -315,5 +283,20 @@ html{
 position:absolute;
 bottom: 0;
 transition: 1s;
+display:none;
+}
+
+#pop-up{
+position:absolute;
+bottom:0;
+padding:10px;
+border-top-right-radius: 4px;
+transition:2s;
+
+}
+
+#pop-up:hover{
+
+opacity:90% !important;
     
 }

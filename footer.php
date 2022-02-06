@@ -39,6 +39,9 @@
 			);
 ?>
 </div>
+<div id = "pop-up" style = "background-color:<?php echo get_theme_mod('popupcolor');?>;">
+<?php echo get_theme_mod('popupentrytext');?>
+</div>
 
 </body>
 </div>
