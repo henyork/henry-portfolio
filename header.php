@@ -20,17 +20,13 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 	<link rel="stylesheet" href="https://use.typekit.net/rwi5iqd.css">
-
-
+	
 	<?php wp_head(); 
-	/*if(is_single()){
-		echo '<link rel="stylesheet" href="/wordpress/wp-content/themes/henry-portfolio/post.css">';
-	}*/
-	if(is_page() && !is_home()){
-		echo '<link rel="stylesheet" href="/wordpress/wp-content/themes/henry-portfolio/page.css">';
-	}
+	
 	?>
 	<!-- Zoom Script -->
+
+<?php if(is_home()): ?>
 	<script>
 	
     // print "false" if direction is down and "true" if up
@@ -44,6 +40,9 @@
 	});
 	
 	const page = document.getElementById("whole-page");
+	
+	var elem = document.documentElement;
+
 	page.zoom = 1;
 	var matrix = [1,0,0,0,0];
 	const scaleFactor = .95;
@@ -62,7 +61,7 @@
 		popUpCounter*=1.1;
 		if(popUpCounter>200){
 			popUp = document.getElementById("pop-up");
-			popUp.style.opacity = "0%";
+			popUp.style.opacity = "5%";
 		}
 	};
 
@@ -123,7 +122,7 @@
 	}
 }
     </script>
-
+<?php endif; ?>
 
 </head>
 

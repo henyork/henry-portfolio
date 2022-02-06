@@ -33,6 +33,23 @@ function starter_customize_register( $wp_customize )
         'settings' => 'popupentrytext'
 		
     ) ) ;
+
+	$wp_customize->add_setting( 'popuplinkentrytext' , array(
+        'default'   => '',
+        'transport' => 'refresh',
+		'sanitize_callback' => 'wp_filter_nohtml_kses'
+    ) );
+
+    $wp_customize->add_control( 'popuplinkentry', array(
+        'label'    => __( 'Pop-Up Link Text', 'starter' ),
+		'type' => 'textarea',
+        'section'  => 'popup',
+        'settings' => 'popuplinkentrytext'
+		
+    ) ) ;
+
+
+
 	$wp_customize->add_setting( 'popupcolor',
    array(
       'default' => '#333',

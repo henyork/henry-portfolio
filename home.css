@@ -3,7 +3,7 @@
     top: 2%;
     left: 5%;
     font-family: 'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif;
-    //font-size: 55%;
+    font-size: 15%;
     font-weight: 700;
     color: rgb(255, 255, 255);
     -webkit-text-stroke-width: .05em;
@@ -15,13 +15,13 @@
 
 .project-card-year{
         font-family: 'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif;
-        //font-size: 55%;
+        font-size: 15%;
         font-weight: 700;
         color: rgb(255, 255, 255);
         -webkit-text-stroke-width: .05em;
         -webkit-text-stroke-color: gray;
         position: absolute;
-        bottom:10%;
+        bottom:25%;
         right: 8%;
         opacity: 0%;
         transition: 1s;
@@ -38,18 +38,29 @@ opacity:100%;
     text-align: left;
     border-radius: 8%;
     width: 10vh;
-    animation-name: breathe;
-    animation-duration: 1s;
-    animation-iteration-count: infinite;
-    animation-direction:alternate;
-    font-size: 50%;
+    animation-name: breathe, slidein;
+    animation-duration: 1s, .1s;
+    animation-iteration-count: infinite, 1;
+    animation-direction:alternate, normal;
+    
 }
+
 
 .project-card{
     border-radius: 8%;
     box-shadow: 0px 4px 8px 0 rgba(0, 0, 0, 0.2), 0 0px 20px 0 rgba(0, 0, 0, 0.19);
     
 }
+
+@keyframes slidein {
+    from{
+    left:0;
+    }
+    to{
+    
+    }
+}
+
 
 @keyframes breathe {
     from {
@@ -67,8 +78,6 @@ opacity:100%;
 
 .divider{
     height: 0vh;
-    
-    
     margin-bottom:5vh;
 
 }
@@ -85,12 +94,14 @@ opacity:100%;
     font-weight: 500;
     font-style: normal;
     font-size: 4vw;
+    transition: .5s;
 
 
 }
 
 .site-title a:hover{
     color:#a8dace;
+   
 }
 
 
@@ -101,33 +112,6 @@ opacity:100%;
     
 }
 
-
-
-.footer-text{
-    position:relative;
-    display: inline;
-    text-align:center;
-    color:#45B69C;
-    
-    font-weight:600;
-    -webkit-text-stroke: .5px #738886;
-    z-index: 3;
-}
-
-
-.site-footer{
-    
-    
-    
-    bottom:0;
-    
-    width:100%;
-    height:6vh;
-    text-align:top;
-    margin-bottom:-13vh;
-    
-    
-}
 
 .site-header{
     position:absolute;
@@ -171,73 +155,16 @@ button.menu-toggle{
 }
 
 .current-menu-item{
-    
+    position:relative;
+    bottom: 10px;
     border-bottom: red solid 5px;
     
 }
 
 
 
-@media screen and (min-width: 770) {
-
-	.menu-toggle {
-		display: none;
-	}
-
-	.main-navigation ul {
-		display: flex;
-	}
-   
-}
-
-@media screen and (max-width:770px){
-    ul#primary-menu{
-        margin-left:10vw;
-        margin-right:10vw;
-        display:flex;
-        
-    }
-    .year{
-        margin-top:1vh;
-        margin-bottom: 1vh;
-        width: 20vw;
-        height:6vh;
-        padding-right:2vw;
-        
-    }
-
-    
 
 
-    .year .text{
-        font-size:3vh;
-        padding-top:.5vh;
-    }
-    .column{
-    
-        float: none;
-        width: 96%;
-        padding: 3%;
-        
-        
-    }
-    .project-card-title{
-        top: 4%;
-        left: 8%;
-        font-size:10vw;
-    }
-    .project-card-year{
-        top: 4%;
-        left: 8%;    
-    }
-    .project-card{
-        margin-top:1vh;
-        margin-bottom:1vh;
-        
-    }
-    
-
-}
 
 .unselectable{
     -moz-user-select: -moz-none;
@@ -267,6 +194,7 @@ button.menu-toggle{
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    pointer-events:auto;
 }
 
 
@@ -274,7 +202,6 @@ button.menu-toggle{
 html{
     height:100%;
     overflow: hidden;
-    //background: #3f3f3f;
     background: whitesmoke;
     
 }
@@ -295,8 +222,101 @@ transition:2s;
 
 }
 
+
 #pop-up:hover{
 
 opacity:90% !important;
     
+}
+
+.js-deactivated{
+    
+text-align:center;    
+background-color:inherit;
+pointer-events:auto;
+
+    
+}
+
+
+@media screen and (min-width: 770) {
+
+	.menu-toggle {
+		display: none;
+	}
+
+	.main-navigation ul {
+		display: flex;
+	}
+        
+   
+}
+
+@media screen and (max-width:850px){
+    ul#primary-menu{
+        margin-left:10vw;
+        margin-right:10vw;
+        display:flex;
+        height:6vh;
+        
+    }
+    .project-card-title{
+        
+    }
+    .project-card-year{
+           
+    }
+    .site-header{
+    position:absolute;
+    
+    top: 35vh;
+    width: 100vw;
+    }
+    .project-card{
+        margin-top:1vh;
+        margin-bottom:1vh;
+        
+    }
+    #pop-up{
+    position:absolute;
+    height:25px;
+    bottom:0;
+    left:0;
+    padding:5px;
+    border-radius: 4px;
+    transition:2s;
+    
+    font-size:40%;
+    animation: fade, 10s;
+    
+    }
+    
+
+    @keyframes fade {
+    from {
+        
+        opacity:100%;
+    }
+    to {
+        
+        opacity:0%;
+    }
+    }
+    body{
+    position:relative;
+    }
+
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) and (orientation: portrait) {
+  html {
+    transform: rotate(-90deg);
+    transform-origin: left top;
+    width: 100vh;
+    height: 100vw;
+    overflow-x: hidden;
+    position: absolute;
+    top: 100%;
+    left: 0;
+  }
 }
