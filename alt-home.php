@@ -21,28 +21,12 @@ get_header();
 	<main id="primary" class="site-main">
 		<?php
 		
-		//catergories sorting
-		/*$categories = get_categories();
-		echo '<div class = "catergory-bar">';
-		echo '<input class="category-selection" type="radio" value="All" name="categories">';
-		foreach($categories as $chosen){
-			$category = $chosen -> name;
-			echo'<label for="catergories">'.$category.'</label>';
-			echo '<input class="category-selection" type="radio" value="'.$category.'" name="categories">';
-			
-		}*/	
 		echo '</div>';
 
 		
 				$cur_yr = date('Y');
 				$year = $cur_yr;
-				
-
-				
-				
 				$args = array(
-					
-				
 					'numberposts' => -1
 				);
 				

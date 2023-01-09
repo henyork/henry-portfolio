@@ -6,7 +6,7 @@
     font-size: 15%;
     font-weight: 700;
     color: rgb(255, 255, 255);
-    -webkit-text-stroke-width: .05em;
+    -webkit-text-stroke-width: inherit;
     -webkit-text-stroke-color: gray;
     opacity: 0%;
     transition: 1s;
@@ -18,10 +18,10 @@
         font-size: 15%;
         font-weight: 700;
         color: rgb(255, 255, 255);
-        -webkit-text-stroke-width: .05em;
+        -webkit-text-stroke-width: inherit;
         -webkit-text-stroke-color: gray;
         position: absolute;
-        bottom:25%;
+        bottom:22%;
         right: 8%;
         opacity: 0%;
         transition: 1s;
@@ -109,14 +109,12 @@ opacity:100%;
 .site-title{
     text-align:center;
     margin-bottom:0;
-    
 }
 
 
 .site-header{
     position:absolute;
-    
-    top: 45vh;
+    top: 42vh;
     width: 100vw;
 }
 
@@ -131,13 +129,10 @@ ul#primary-menu {
     
   }
 .menu-item {
-   
     margin: 0 auto;
     text-align: center;
     padding: 1px 8px;
     border-bottom: 5px solid gray;
-    
-    
 }
 .menu-item a{
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -155,9 +150,8 @@ button.menu-toggle{
 }
 
 .current-menu-item{
-    position:relative;
-    bottom: 10px;
-    border-bottom: red solid 5px;
+    
+    border-bottom: #ff7c74 solid 5px;
     
 }
 
@@ -252,71 +246,6 @@ pointer-events:auto;
    
 }
 
-@media screen and (max-width:850px){
-    ul#primary-menu{
-        margin-left:10vw;
-        margin-right:10vw;
-        display:flex;
-        height:6vh;
-        
-    }
-    .project-card-title{
-        
-    }
-    .project-card-year{
-           
-    }
-    .site-header{
-    position:absolute;
-    
-    top: 35vh;
-    width: 100vw;
-    }
-    .project-card{
-        margin-top:1vh;
-        margin-bottom:1vh;
-        
-    }
-    #pop-up{
-    position:absolute;
-    height:25px;
-    bottom:0;
-    left:0;
-    padding:5px;
-    border-radius: 4px;
-    transition:2s;
-    
-    font-size:40%;
-    animation: fade, 10s;
-    
-    }
-    
 
-    @keyframes fade {
-    from {
-        
-        opacity:100%;
-    }
-    to {
-        
-        opacity:0%;
-    }
-    }
-    body{
-    position:relative;
-    }
 
-}
 
-@media screen and (min-width: 320px) and (max-width: 767px) and (orientation: portrait) {
-  html {
-    transform: rotate(-90deg);
-    transform-origin: left top;
-    width: 100vh;
-    height: 100vw;
-    overflow-x: hidden;
-    position: absolute;
-    top: 100%;
-    left: 0;
-  }
-}

@@ -1,65 +1,60 @@
 
+@media screen and (max-width:770px){
 
-	  
-   
-
-.project-card-title{
-    position:absolute;
-    margin-right:20%;
-    top: 15%;
-    left: 20%;
-    
-    font-family: 'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-size: 1.5vw;
-    font-weight: 700;
-    color: rgb(255, 255, 255);
-    -webkit-text-stroke-width: .8px;
-    -webkit-text-stroke-color: gray;
-    
-}
-
-.project-card-year{
-        font-family: 'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif;
-        font-size: 1.5vw;
-        font-weight: 700;
-        color: rgb(255, 255, 255);
-        -webkit-text-stroke-width: .8px;
-        -webkit-text-stroke-color: gray;
-        
-        position: absolute;
-        bottom:15%;
-        right: 20%;
-    }
-
-
-.project-card:hover{
-    transform: scale(1.01);
-}
+/* project card formatting */
 .project-card{
     display:block;
     position: relative;
     text-align: center;
     transition: all .15s ease-in-out;
     border-radius: 8%;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-   
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);  
+    margin-top:1vh;
+    margin-bottom:1vh;
+    
 }
+
+.project-card-title{
+    position:absolute;
+    top: 8%;
+    left: 12%;
+    font-family: 'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 10vw;
+    font-weight: 700;
+    color: rgb(255, 255, 255);
+    -webkit-text-stroke-width: .8px;
+    -webkit-text-stroke-color: gray;
+}
+
+
+
+.project-card-year{
+    position:absolute;
+    bottom: 8%;
+    right: 12%;
+    font-size:12vw;
+    font-weight: 700;
+    color: rgb(255, 255, 255);
+    -webkit-text-stroke-width: .8px;
+    -webkit-text-stroke-color: gray;
+}
+
+
+
 
 .column{
-    
-    float: left;
-    width: 20%;
-    padding: 3%;
     position: relative;
-      
+    float: none;
+    width: 96%;
+    padding: 8%;
+    
+    
 }
-
 
 .row::after {
     content:"";
     clear:both;
     display:table;
-    
 }
 
 
@@ -67,10 +62,9 @@
 .divider{
     height: 0vh;
     margin-bottom:5vh;
-
 }
 
-
+/* site branding */
 
 .site-title a{
     text-decoration: none;
@@ -81,8 +75,8 @@
     font-family: niveau-grotesk-small-caps, sans-serif;
     font-weight: 500;
     font-style: normal;
-    font-size: 200%;
-    
+    font-size: 6vh;
+
 
 }
 
@@ -92,10 +86,10 @@
 
 
 
-.site-title{
+.site-title, .site-description{
     text-align:center;
     margin-top:0px;
-    margin-bottom:2vh;
+    margin-bottom: 0;
     
 }
 
@@ -114,6 +108,9 @@
 
 
 .site-footer{
+    
+    
+    
     bottom:0;
     
     width:100%;
@@ -125,33 +122,40 @@
 }
 
 .site-branding{
-
-    margin-top:0px;
-    height:8vh;
     
+    
+    margin-top:0px;
+    height: auto;
+    
+}
+
+.nav-menu{
+    display:block;
 }
 
 
 
 
 ul#primary-menu {
-    margin-bottom:2vh;
-    margin-top: 2vh;
-    margin-left:35vw;
-    margin-right:35vw;
-}
+    margin-left:5vw;
+    margin-right:5vw;
+    border-radius:10px;
+    margin-bottom: 0;
+    margin-top:0;
+    
+  }
 .menu-item {
+   
     margin: 0 auto;
     text-align: center;
-    padding: 5px 10px;
-    padding: 1px 10px;
+    padding: 1px 8px;
     border-bottom: 5px solid gray;
+    
 }
 .menu-item a{
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight:400;
-    color:#45B69C;
-    font-size:150%;
+    font-size:6vw;
     color:#4e4e4e;
     -webkit-text-stroke: .5px #738886;
 }
@@ -165,16 +169,10 @@ button.menu-toggle{
 
 .current-menu-item{
     
-    border-bottom: #ff7c74 solid 5px;
+    border-bottom: red solid 5px;
     
 }
-.menu-toggle {
-    display: none;
-}
 
-.main-navigation ul {
-    display: flex;
-}
 
 .unselectable{
     -moz-user-select: -moz-none;
@@ -193,18 +191,13 @@ button.menu-toggle{
     margin-bottom:0vh;
 }
 
-
 /* interactive page link */
 #pop-up{
-    position:fixed;
-    bottom:0;
-    padding:10px;
-    border-top-right-radius: 4px;
-    background-color:antiquewhite;
+    display:none;
 }
 
-#pop-up a{
-    padding:6px;
-    color:blue;
-}
 
+
+
+
+}

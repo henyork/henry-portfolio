@@ -47,6 +47,21 @@ function starter_customize_register( $wp_customize )
         'settings' => 'popuplinkentrytext'
 		
     ) ) ;
+	
+	$wp_customize->add_setting( 'altpopuplinkentrytext' , array(
+        'default'   => '',
+        'transport' => 'refresh',
+		'sanitize_callback' => 'wp_filter_nohtml_kses'
+    ) );
+
+    $wp_customize->add_control( 'altpopuplinkentry', array(
+        'label'    => __( 'Alternate Pop-Up Link Text', 'starter' ),
+		'type' => 'textarea',
+        'section'  => 'popup',
+        'settings' => 'altpopuplinkentrytext'
+		
+    ) ) ;
+	
 
 
 

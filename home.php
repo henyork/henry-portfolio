@@ -16,11 +16,46 @@ get_header();
 ?>
     
 	<main id="primary" class="site-main">
+	
 	<?php
+	if(htmlspecialchars($_COOKIE["alt"])){
+	//alternate/mobile homepage	script
+		echo '</div>';
+				
+				$args = array(
+					'numberposts' => -1
+				);
+				$posts = get_posts($args);
+				
+				if(!empty($posts)){
+					echo '<div class = "row">';
+					foreach ($posts as $post_data) {
+						$content = apply_filters('the_content', $post_data->post_content);
+						$title = $post_data->post_title; 
+						$id = $post_data->ID;
+						$year = get_the_date('Y',$id);
+						if (has_post_thumbnail($id)){
+							$image = wp_get_attachment_image_src( get_post_thumbnail_id($id), 'single-post-thumbnail' ); 
+							$link = get_permalink($id);
+							echo '<div class = "column">';
+							echo '<a href="'.$link.'">';
+							echo '<img href= "" class = "project-card" src="'. $image[0] .'" alt="'. get_the_title() .'" />';
+							echo '<div class = "project-card-title">'.$title.'</div>';
+							echo '<div class = "project-card-year">'.$year.'</div>';
+							echo '</a>';
+							echo '</div>';
+							
+						}
+						 
+					}
+					echo '</div>';
+					}
+		}else{
+	
 		echo '</div>';
 		
-		//new Post getting
-	
+		//main homepage script
+
 		$args = array('numberposts' => -1,'orderby' => 'title');
 		$posts = get_posts($args);
 
@@ -34,13 +69,13 @@ get_header();
 				
 				if($count < 1/2 * $numposts){
 					$x = 15+((140/$numposts)*$count);
-					$y = 50+ sqrt(400*1*(1-(($x-50)**2)/1225));
+					$y = 50+ sqrt(600*1*(1-(($x-50)**2)/1225));
 				}
 				if($count >= 1/2*$numposts){
 					$x = 155-((140/$numposts)*$count);
-					$y = 50- sqrt(400*1*(1-(($x-50)**2)/1225));
+					$y = 40- sqrt(600*1*(1-(($x-50)**2)/1225));
 				}
-				$width = rand(3, 5);
+				$width = rand(5, 7);
 				$duration = rand(3,10);
 				$count++;
 
@@ -50,7 +85,7 @@ get_header();
 				if (has_post_thumbnail($id)){
 					$image = wp_get_attachment_image_src( get_post_thumbnail_id($id), 'single-post-thumbnail' ); 
 					$link = get_permalink($id);
-					echo '<div style = "font-size: '.$width.'vw; animation-duration:'.$duration.'s, 1s; top:'.$y.'vh; left:'.($x-1/2*$width).'vw; width:'.$width.'vw;" class = "card-container">';
+					echo '<div style = "-webkit-text-stroke-width: '.$width*.0008.'em; font-size: '.$width.'vw; animation-duration:'.$duration.'s, 1s; top:'.$y.'vh; left:'.($x-1/2*$width).'vw; width:'.$width.'vw;" class = "card-container">';
 					echo '<a href="'.$link.'">';
 					echo '<img href= "" style = "" class = "project-card" src="'. $image[0] .'" alt="'. get_the_title() .'" />';
 					echo '<div class = "project-card-title">'.$title.'</div>';
@@ -61,42 +96,8 @@ get_header();
 
 
 			}
+			}
 		}
-
-
-
-
-				/*
-				OLD POST GETTING
-				$cur_yr = date('Y');
-				$year = $cur_yr;
-				$args = array(
-					'numberposts' => -1
-				);
-				
-				$posts = get_posts($args);
-				if(!empty($posts)){
-					echo '<div class = "row">';
-					foreach ($posts as $post_data) {
-						//echo('<img>')
-						$content = apply_filters('the_content', $post_data->post_content); 
-						$title = $post_data->post_title; 
-						$id = $post_data->ID;
-						if (has_post_thumbnail($id)){
-							$image = wp_get_attachment_image_src( get_post_thumbnail_id($id), 'single-post-thumbnail' ); 
-							$link = get_permalink($id);
-							echo '<div class = "column">';
-							echo '<a href="'.$link.'">';
-							echo '<img href= "" class = "project-card" src="'. $image[0] .'" alt="'. get_the_title() .'" />';
-							echo '<div class = "project-card-title">'.$title.'</div>';
-							echo '<div class = "project-card-year">'.$year.'</div>';
-							echo '</a>';
-							echo '</div>';
-						}
-					}
-					echo '</div>';
-					}
-					*/
 		
 		?>
 		

@@ -8,11 +8,118 @@ p{
     padding-right:2vw;
 }
 
+.script{
+    font-family: scrivano, serif;
+    font-weight: 700;
+    font-style: italic;
+    font-size:36px;
+    
+    //text-decoration: underline;
+}
 
+.big{
+    font-size:2vw;
+}
+td img{
+    position: relative;
+    vertical-align: middle;
+}
 
-.site-footer{
-    position:static;
+td{
+    font-stretch:condensed;
+    
+}
+.wp-block-separator{
+    margin-right:2vw;
+}
+@media screen and (max-width:770px){
+    td{
+        font-stretch:condensed;
+        display:block;
+    }
+    
+}
+@media screen and (max-width:900px){   
+    .email{
+        font-size:4vw !important; 
+    }
+}
+
+p img{
+    position: relative;
+    vertical-align: middle;
+    
+}
+
+.about-banner{
+    
+    color:green;
+    border-radius:10px;
 }
 
 
+.site-title a{
+    text-decoration: none;
+    text-align:center;
+    color:#45B69C;
+    -webkit-text-stroke: .5px #738886;
+    -webkit-text-stroke: 1px #738886;
+    transition: all .15s ease-in-out;
+    font-family: niveau-grotesk-small-caps, sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 4vw;
+}
+@media screen and (max-width:900px){   
+    .site-title a{
+        font-size: 6vh;
+    }
+}
+
+ul{
+    margin-left:2vw;
+}
+.site-title a:hover{
+    color:#a8dace;
+}
+
+ul#primary-menu {
+    margin-bottom:3vh;
+    margin-top: 1vh;
+    margin-left:35vw;
+    margin-right:35vw;
+}
+.menu-item {
+    margin: 0 auto;
+    text-align: center;
+    padding: 5px 10px;
+    padding: 1px 10px;
+    border-bottom: 5px solid gray;
+}
+.menu-item a{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight:400;
+    color:#45B69C;
+    font-size:800;
+    color:#4e4e4e;
+    -webkit-text-stroke: .5px #738886;
+}
+.menu-item a:hover{
+    color:#a8dace;
+}
+.current-menu-item{
+    
+    border-bottom: #ff7c74 solid 5px;
+}
+
+
+.site-title, .site-description{
+    text-align:center;
+    margin-top:0px;
+    margin-bottom:0;
+}
+
+#pop-up{
+    display:none;
+}
 

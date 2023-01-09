@@ -41,24 +41,21 @@
 </div>
 
 
-<?php if(is_home()): ?>
-
+<?php if(!htmlspecialchars($_COOKIE["alt"]) && is_home()): ?>
 <div id = "pop-up" style = "background-color:<?php echo get_theme_mod('popupcolor');?>;">
 <div>
 <?php echo get_theme_mod('popupentrytext');?>
 </div>
 <div>
 <?php echo get_theme_mod('popuplinkentrytext');?> 
-<a href= "/alt-home">alternate page</a>
+<a href= "/" onclick="document.cookie = 'alt=1'">static homepage</a>
 </div>
 </div>
-
-
-
 <noscript>
 	<div class = "js-deactivated">
 	<h2>I require JavaScript to be active!</h2>
-	<a  href="/alt-home">
+	
+	<a href="/alt-home" >
 	<h3>Or, view an alternate page<h3>
 	</a>
 	</div>
@@ -78,8 +75,12 @@
 
 <?php endif; ?>
 
+<?php if(htmlspecialchars($_COOKIE["alt"])): ?>
+<div id="pop-up">
 
-
+<a href= "/" onclick="document.cookie = 'alt=0'"><?php echo get_theme_mod('altpopuplinkentrytext');?> </a>
+</div>
+<?php endif; ?>
 </body>
 </div>
 </html>

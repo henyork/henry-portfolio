@@ -80,9 +80,24 @@
 
 		?>
 	</div><!-- .entry-content -->
-	<div class= back-button>
-	<a href= "/wordpress/#<?php echo(get_the_date('Y')); ?>">Back</a>
-	</div>
+	<script>
+
+	function backBtn(defUrl) {
+    defUrl = defUrl || window.location.origin;
+    var prev = window.location.href;
+
+    window.history.go(-1);
+
+    setTimeout(function(){ 
+        if (window.location.href == prev) {
+            window.location.href = defUrl; 
+        }
+    }, 500);
+	}
+	</script>
+	<input class="back-button" type="button" value="🢠 Back" onclick="backBtn()">
+	
+
 	<div class= post-spacing></div>
 	
 	
