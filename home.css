@@ -4,12 +4,12 @@
     left: 5%;
     font-family: 'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 15%;
-    font-weight: 700;
+    font-weight: 600;
     color: rgb(255, 255, 255);
     -webkit-text-stroke-width: inherit;
     -webkit-text-stroke-color: gray;
     opacity: 0%;
-    transition: 1s;
+    transition: .5s;
     filter: none;
 }
 
@@ -24,7 +24,7 @@
         bottom:22%;
         right: 8%;
         opacity: 0%;
-        transition: 1s;
+        transition: .5s;
         filter: none;
 }
 
@@ -189,6 +189,8 @@ button.menu-toggle{
     -ms-user-select: none;
     user-select: none;
     pointer-events:auto;
+	transition-timing-function: linear;
+	
 }
 
 
