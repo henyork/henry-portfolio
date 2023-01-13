@@ -88,14 +88,16 @@
 		var scaleVal = matrix[0]*(1/scaleFactor); 
 		//if(scaleVal < 1){scaleVal = 1;} 
 		page.style.transform = "scale("+scaleVal+")"; 
-		page.style.transformOrigin = "calc("+this.offsetTop+"px + 50%) calc("+this.offsetLeft+"px + 50%);";
+		page.style.transformOrigin = "calc("+page.offsetTop+"px + 50%) calc("+page.offsetLeft+"px + 50%);";
+		page.style.transformOrigin = mouseX+" "+mouseY;
 	 };
 
 	base_elmnt.onscrollbackward = function( e ) {
 	var scaleVal = matrix[0]*scaleFactor; 
-	//if(scaleVal < 1){scaleVal = 1;}
+	if(scaleVal < .8){scaleVal = .8;}
 	 page.style.transform = "scale("+scaleVal+")";
-	 page.style.transformOrigin = "calc("+this.offsetTop+"px + 50%) calc("+this.offsetLeft+"px + 50%);";
+	 page.style.transformOrigin = "calc("+page.offsetTop+"px + 50%) calc("+page.offsetLeft+"px + 50%);";
+	 page.style.transformOrigin = mouseX+" "+mouseY;
 	};    
 
 

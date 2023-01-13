@@ -54,6 +54,23 @@ get_header();
 	
 		echo '</div>';
 		
+?>
+
+
+
+
+
+<div id="category1" class="category-box"><h1 class="category-heading">mechanics</h1></div>
+<div id="category2" class="category-box"><h1 class="category-heading">electronics</h1></div>
+<div id="category3" class="category-box"><h1 class="category-heading">programming</h1></div>
+<div id="category4" class="category-box"><h1 class="category-heading">art</h1></div>
+<div class="category-box-extension" id="extension-left"></div>
+<div class="category-box-extension" id="extension-top"></div>
+<div class="category-box-extension" id="extension-right"></div>
+<div class="category-box-extension" id="extension-bottom"></div>
+<div id="category-box-mask"></div>
+		
+<?php
 		//main homepage script - primary posts
 
 		$args = array('numberposts' => -1,'orderby' => 'title', 'tag'=>'primary');
