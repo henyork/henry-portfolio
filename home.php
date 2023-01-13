@@ -72,41 +72,29 @@ get_header();
 		
 <?php
 		//main homepage script - primary posts
-
-		$args = array('numberposts' => -1,'orderby' => 'title', 'tag'=>'primary');
+		
+		$args = array('numberposts' => -1,'orderby' => 'title','tag'=>'primary','category_name'=>'electronics');
 		$posts = get_posts($args);
-
 		if(!empty($posts)){
-			
-			$numposts= count($posts);
-			$count = 1;
-			
-			
+			$num_posts= count($posts);
+			$count = 0;
+			$space_per = 50/$num_posts;
+			for($i = 0; $i<$num_posts; $i++){
+				$x[$i]=$space_per*$i+1/2*$space_per;
+				$y[$i]=1/50*pow($x[$i]-50,2);
+			}
 			foreach($posts as $post_data){
-				
-				
-				if($count < 1/2 * $numposts){
-					$x = 15+((140/$numposts)*$count);
-					$y = 50+ sqrt(600*1*(1-(($x-50)**2)/1225));
-				}
-				if($count >= 1/2*$numposts){
-					$x = 155-((140/$numposts)*$count);
-					$y = 40- sqrt(600*1*(1-(($x-50)**2)/1225));
-				}
-				
-				
-				$width = rand(5, 7);
-				
+				$width = rand(5, 9);
+				$y_val = $y[$count];
+				$x_val = $x[$count];
 				$duration = rand(3,10);
-				$count++;
-
 				$title = $post_data->post_title; 
 				$id = $post_data->ID;
 				$year = get_the_date($format = 'Y', $post = $id);
 				if (has_post_thumbnail($id)){
 					$image = wp_get_attachment_image_src( get_post_thumbnail_id($id), 'single-post-thumbnail' ); 
 					$link = get_permalink($id);
-					echo '<div style = "-webkit-text-stroke-width: '.$width*.0008.'em; font-size: '.$width.'vw; animation-duration:'.$duration.'s, 1s; top:'.$y.'vh; left:'.($x-1/2*$width).'vw; width:'.$width.'vw;" class = "card-container">';
+					echo '<div style = "-webkit-text-stroke-width: '.$width*.0008.'em; font-size: '.$width.'vw; animation-duration:'.$duration.'s, 1s; top:'.$y_val.'vh; right:'.($x_val).'vw; width:'.$width.'vw;" class = "card-container">';
 					echo '<a href="'.$link.'">';
 					echo '<img href= "" style = "" class = "project-card" src="'. $image[0] .'" alt="'. get_the_title() .'" />';
 					echo '<div class = "project-card-title">'.$title.'</div>';
@@ -114,15 +102,45 @@ get_header();
 					echo '</a>';
 					echo '</div>';
 				}
-
-
+				$count++;
 			}
 			}
-		
-		
+			
+			$args = array('numberposts' => -1,'orderby' => 'title','tag'=> 'secondary','category_name'=>'electronics');
+			$posts = get_posts($args);
+			if(!empty($posts)){
+				$num_posts= count($posts);
+				$count = 0;
+				$space_per = 50/$num_posts;
+				for($i = 0; $i<$num_posts; $i++){
+					$x[$i]=$space_per*$i+1/2*$space_per;
+					$y[$i]=1/30*pow($x[$i]-30,2);
+				}
+				foreach($posts as $post_data){
+					$width = rand(2, 4);
+					$y_val = $y[$count];
+					$x_val = $x[$count];
+					$duration = rand(3,10);
+					$title = $post_data->post_title; 
+					$id = $post_data->ID;
+					$year = get_the_date($format = 'Y', $post = $id);
+					if (has_post_thumbnail($id)){
+						$image = wp_get_attachment_image_src( get_post_thumbnail_id($id), 'single-post-thumbnail' ); 
+						$link = get_permalink($id);
+						echo '<div style = "-webkit-text-stroke-width: '.$width*.0008.'em; font-size: '.$width.'vw; animation-duration:'.$duration.'s, 1s; top:'.$y_val.'vh; right:'.($x_val-1/2*$width).'vw; width:'.$width.'vw;" class = "card-container">';
+						echo '<a href="'.$link.'">';
+						echo '<img href= "" style = "" class = "project-card" src="'. $image[0] .'" alt="'. get_the_title() .'" />';
+						echo '<div class = "project-card-title">'.$title.'</div>';
+						echo '<div class = "project-card-year">'.$year.'</div>';
+						echo '</a>';
+						echo '</div>';
+					}
+					$count++;
+				}
+			}
 		
 			//Secondary posts
-		
+			/*
 			$args = array('numberposts' => -1,'orderby' => 'title', 'tag'=>'secondary');
 			$posts = get_posts($args);
 
@@ -167,7 +185,7 @@ get_header();
 
 
 				}
-				}
+				} */
 		}
 ?>
 		
