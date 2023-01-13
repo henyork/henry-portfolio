@@ -73,21 +73,15 @@ get_header();
 <?php
 		//main homepage script - primary posts
 		
-		$args = array('numberposts' => -1,'orderby' => 'title','tag'=>'primary','category_name'=>'electronics');
+		$args = array('numberposts' => -1,'orderby' => 'title');
 		$posts = get_posts($args);
 		if(!empty($posts)){
-			$num_posts= count($posts);
-			$count = 0;
-			$space_per = 50/$num_posts;
-			for($i = 0; $i<$num_posts; $i++){
-				$x[$i]=$space_per*$i+1/2*$space_per;
-				$y[$i]=1/50*pow($x[$i]-50,2);
-			}
+			
 			foreach($posts as $post_data){
-				$width = rand(5, 9);
-				$height = $width * 850/700;
-				$y_val = $y[$count];
-				$x_val = $x[$count];
+				$x = get_theme_mod('card'.$post_data->ID.'x_val');
+				$y = get_theme_mod('card'.$post_data->ID.'y_val');
+				$width = get_theme_mod('card'.$post_data->ID.'width_val');
+				$height = $width * 85/70;
 				$duration = rand(3,10);
 				$title = $post_data->post_title; 
 				$id = $post_data->ID;
@@ -95,7 +89,7 @@ get_header();
 				if (has_post_thumbnail($id)){
 					$image = wp_get_attachment_image_src( get_post_thumbnail_id($id), 'single-post-thumbnail' ); 
 					$link = get_permalink($id);
-					echo '<div style = "-webkit-text-stroke-width: '.$width*.0008.'em; font-size: '.$width.'vw; animation-duration:'.$duration.'s, 1s; top:'.($y_val+1/2*$height).'vh; right:'.($x_val-1/2*$width).'vw; width:'.$width.'vw;" class = "card-container">';
+					echo '<div style = "-webkit-text-stroke-width: '.$width*.0008.'em; font-size: '.$width.'vw; animation-duration:'.$duration.'s, 1s; bottom:'.($y-1/2*$height).'vh; left:'.($x-1/2*$width).'vw; width:'.$width.'vw;" class = "card-container">';
 					echo '<a href="'.$link.'">';
 					echo '<img href= "" style = "" class = "project-card" src="'. $image[0] .'" alt="'. get_the_title() .'" />';
 					echo '<div class = "project-card-title">'.$title.'</div>';
@@ -107,39 +101,7 @@ get_header();
 			}
 			}
 			
-			$args = array('numberposts' => -1,'orderby' => 'title','tag'=> 'secondary','category_name'=>'electronics');
-			$posts = get_posts($args);
-			if(!empty($posts)){
-				$num_posts= count($posts);
-				$count = 0;
-				$space_per = 50/$num_posts;
-				for($i = 0; $i<$num_posts; $i++){
-					$x[$i]=$space_per*$i+1/2*$space_per;
-					$y[$i]=1/30*pow($x[$i]-30,2);
-				}
-				foreach($posts as $post_data){
-					$width = rand(2, 4);
-					$y_val = $y[$count];
-					$x_val = $x[$count];
-					$duration = rand(3,10);
-					$title = $post_data->post_title; 
-					$id = $post_data->ID;
-					$year = get_the_date($format = 'Y', $post = $id);
-					if (has_post_thumbnail($id)){
-						$image = wp_get_attachment_image_src( get_post_thumbnail_id($id), 'single-post-thumbnail' ); 
-						$link = get_permalink($id);
-						echo '<div style = "-webkit-text-stroke-width: '.$width*.0008.'em; font-size: '.$width.'vw; animation-duration:'.$duration.'s, 1s; top:'.$y_val.'vh; right:'.($x_val-1/2*$width).'vw; width:'.$width.'vw;" class = "card-container">';
-						echo '<a href="'.$link.'">';
-						echo '<img href= "" style = "" class = "project-card" src="'. $image[0] .'" alt="'. get_the_title() .'" />';
-						echo '<div class = "project-card-title">'.$title.'</div>';
-						echo '<div class = "project-card-year">'.$year.'</div>';
-						echo '</a>';
-						echo '</div>';
-					}
-					$count++;
-				}
-			}
-		
+			
 			//Secondary posts
 			/*
 			$args = array('numberposts' => -1,'orderby' => 'title', 'tag'=>'secondary');

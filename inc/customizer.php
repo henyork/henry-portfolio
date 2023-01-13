@@ -78,6 +78,72 @@ function starter_customize_register( $wp_customize )
 		'type' => 'color',
 	)
 	);
+	
+	$wp_customize->add_panel( 'cards', array(
+	 'priority'       => 10,
+	  'capability'     => 'edit_theme_options',
+	  'theme_supports' => '',
+	  'title'          => __('Cards', 'henry-portfolio'),
+	  'description'    => __('Several settings pertaining my theme', 'henry-portfolio'),
+	) );
+	
+	
+	$args = array('numberposts' => -1,'orderby' => 'title');
+	$posts = get_posts($args);
+	
+	if(!empty($posts)){
+		$num_posts= count($posts);
+		$count = 0;
+		foreach($posts as $post_data){
+			$wp_customize->add_section( 'card'.$post_data->ID.'section' , array(
+			'title'    => __( $post_data->post_title, 'starter' ),
+				'priority' => 30,
+				'panel' => 'cards'
+			) );
+			
+			$wp_customize->add_setting( 'card'.$post_data->ID.'x_val',
+				 array(
+					 'default' => '50'
+					 
+					 )
+					);
+			$wp_customize->add_control( 'card'.$post_data->ID.'x', array(
+					'label'    => __( $post_data->post_title.' X', 'starter' ),
+					'type' => 'number',
+					'section'  => 'card'.$post_data->ID.'section',
+					'settings' => 'card'.$post_data->ID.'x_val'
+
+					) ) ;
+			$wp_customize->add_setting( 'card'.$post_data->ID.'y_val',
+				 array(
+					 'default' => '50'
+					 )
+					);
+			$wp_customize->add_control( 'card'.$post_data->ID.'y', array(
+					'label'    => __( $post_data->post_title.' Y', 'starter' ),
+					'type' => 'number',
+					'section'  => 'card'.$post_data->ID.'section',
+					'settings' => 'card'.$post_data->ID.'y_val'
+
+					) ) ;
+			$wp_customize->add_setting( 'card'.$post_data->ID.'width_val',
+				 array(
+					 'default' => '5'
+					 )
+					);
+			$wp_customize->add_control( 'card'.$post_data->ID.'width', array(
+					'label'    => __( $post_data->post_title.' Width', 'starter' ),
+					'type' => 'number',
+					'section'  => 'card'.$post_data->ID.'section',
+					'settings' => 'card'.$post_data->ID.'width_val'
+
+					) ) ;
+			$count++;
+		}
+	}
+	
+	
+	
 
 }
 add_action( 'customize_register', 'starter_customize_register');
