@@ -158,13 +158,18 @@
 	
 	<div class="site-branding">
 			<?php
-			the_custom_logo();
+			
 			
 
 
 			if ( is_front_page() && is_home() ) :
+				$custom_logo_id = get_theme_mod( 'custom_logo' );
+				$image = wp_get_attachment_image_src( $custom_logo_id , 'full' );
+				
 				?>
-				<h1 id="henry-title" class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+				
+				<img class="site-logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" src='<?php echo($image[0]) ?>'>
+				
 				<?php
 			else :
 				?>

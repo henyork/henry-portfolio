@@ -225,6 +225,8 @@ add_filter( 'wp_check_filetype_and_ext', function($data, $file, $filename, $mime
 	$mimes['svg'] = 'image/svg+xml';
 	return $mimes;
   }
+
+  
   add_filter( 'upload_mimes', 'cc_mime_types' );
   
   function fix_svg() {
