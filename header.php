@@ -1,3 +1,4 @@
+
 <?php
 /**
  * The header for our theme
@@ -87,17 +88,21 @@
 	base_elmnt.onscrollforeward = function( e ) {
 		var scaleVal = matrix[0]*(1/scaleFactor); 
 		//if(scaleVal < 1){scaleVal = 1;} 
+		/* UNCOMMENT TO ENABLE SCROLLING
 		page.style.transform = "scale("+scaleVal+")"; 
 		page.style.transformOrigin = "calc("+page.offsetTop+"px + 50%) calc("+page.offsetLeft+"px + 50%);";
 		page.style.transformOrigin = mouseX+" "+mouseY;
+		*/
 	 };
 
 	base_elmnt.onscrollbackward = function( e ) {
 	var scaleVal = matrix[0]*scaleFactor; 
 	if(scaleVal < .8){scaleVal = .8;}
-	 page.style.transform = "scale("+scaleVal+")";
+	/* UNCOMMENT TO ENABLE SCROLLING 
+	page.style.transform = "scale("+scaleVal+")";
+	
 	 page.style.transformOrigin = "calc("+page.offsetTop+"px + 50%) calc("+page.offsetLeft+"px + 50%);";
-	 page.style.transformOrigin = mouseX+" "+mouseY;
+	 page.style.transformOrigin = mouseX+" "+mouseY; */
 	};    
 
 
@@ -131,9 +136,9 @@
 		pos2 = pos4 - e.clientY;
 		pos3 = e.clientX;
 		pos4 = e.clientY;
-		// set the element's new position:
-		elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
-		elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+		// set the element's new position: UNCOMMENT BELOW TO ENABLE DRAGGING
+		//elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+		//elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
 	}
 
 	function closeDragElement() {
@@ -158,22 +163,20 @@
 	
 	<div class="site-branding">
 			<?php
-			
-			
-
-
+			$custom_logo_id = get_theme_mod( 'custom_logo' );
+			$image = wp_get_attachment_image_src( $custom_logo_id , 'full' );
 			if ( is_front_page() && is_home() ) :
-				$custom_logo_id = get_theme_mod( 'custom_logo' );
-				$image = wp_get_attachment_image_src( $custom_logo_id , 'full' );
+				
 				
 				?>
 				
-				<img class="site-logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" src='<?php echo($image[0]) ?>'>
+				<a href= "<?php echo esc_url( home_url( '/' ) ); ?>"> <img class="site-logo"  rel="home" src='<?php echo($image[0]) ?>'></a>
 				
 				<?php
 			else :
+				
 				?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+				<a href= "<?php echo esc_url( home_url( '/' ) ); ?>"> <img class="site-logo"  rel="home" src='<?php echo($image[0]) ?>'></a>
 				<?php
 			endif;
 			/*$henry_portfolio_description = get_bloginfo( 'description', 'display' );
@@ -185,7 +188,7 @@
 	
 	<div class= "nav-menu">
 		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Menu', 'henry-portfolio' ); ?></button>
+			
 			
 			<?php
 			if(!is_single()){

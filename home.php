@@ -89,7 +89,7 @@ get_header();
 				if (has_post_thumbnail($id)){
 					$image = wp_get_attachment_image_src( get_post_thumbnail_id($id), 'single-post-thumbnail' ); 
 					$link = get_permalink($id);
-					echo '<div style = "-webkit-text-stroke-width: '.$width*.0008.'em; font-size: '.$width.'vw; animation-duration:'.$duration.'s, 1s; bottom:'.($y-1/2*$height).'vh; left:'.($x-1/2*$width).'vw; width:'.$width.'vw;" class = "card-container">';
+					echo '<div style = "-webkit-text-stroke-width: '.$width*.0008.'em; font-size: '.$width.'vw; animation-duration:'.$duration.'s, 1s; bottom:'.($y-1/2*$height).'vh; left:'.($x-1/2*$width).'vw; width:'.$width.'vw; height:'.$height.'vw;" class = "card-container">';
 					echo '<a href="'.$link.'">';
 					echo '<img href= "" style = "" class = "project-card" src="'. $image[0] .'" alt="'. get_the_title() .'" />';
 					echo '<div class = "project-card-title">'.$title.'</div>';
